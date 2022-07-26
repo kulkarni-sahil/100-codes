@@ -58,3 +58,59 @@ if re.search('^From: ', line):  # "^From: "
     pass
 
 </pre>
+
+
+
+## Match and Extracting
+
+- re.search() -> return True/False based on if string matches the regular expression.
+- re.findall() -> if want to extract matching string
+
+Example:
+<pre>
+import re
+a = 'my 2 fav nos are 612 and 19'
+y = re.findall('[0-9]+', a)  # [0-9]+  ==> this means one or more digits
+
+y -> [2, 612, 19]
+</pre>
+
+**Greedy Matching**
+
+repeat characters (* and +) push outward in both directions (greedy) to match largest possible string
+
+example:
+<pre>
+import re
+x = "From: using the : character"
+y = re.findall('^F.+:', x)  # '^F.+:' ==> starts with F has one or more characters and ends with :
+y => ['From: using the :']
+</pre>
+Greedy Search as it took the longest matching thing
+
+not being greedy ==> **'^F.+?:'**  the *+?* makes it non greedy
+o/p; ['From:']
+
+Example
+<pre>
+text=> From: sahil@example.com sat jun  5
+
+\S+@\S+  =>  \S means non blank character so non blank characters around @
+
+y = re.findall('\S+@\S+', text)
+y => ['sahil@example.com']
+
+y = re.findall('^From (\S+@\S+)', text)   => (   ) => group we want to extract
+y => ['sahil@example.com']
+
+</pre>
+
+
+Extract host name
+
+text => From sahil@example.com sat jun 5
+
+expression:
+
+1. ===>   '\S+@(\S+)'  
+2. ===>   '@([^ ]*)'  => has @ and then capture that does not have a blank character
