@@ -151,5 +151,3 @@ expression:
 
 1. ===>   '\S+@(\S+)'  
 2. ===>   '@([^ ]*)'  => has @ and then capture that does not have a blank character
-
-
