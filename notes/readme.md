@@ -141,3 +141,15 @@ y = re.findall('^From (\S+@\S+)', text)   => (   ) => group we want to extract
 y => ['sahil@example.com']
 
 </pre>
+
+
+Extract host name
+
+text => From sahil@example.com sat jun 5
+
+expression:
+
+1. ===>   '\S+@(\S+)'  
+2. ===>   '@([^ ]*)'  => has @ and then capture that does not have a blank character
+
+
