@@ -14,4 +14,11 @@ mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # 80 -> Port
 # this line can blow up
 mysock.connect(('data.pr4e.org', 80))
+</pre>
 
+
+http://www.dr-chuck.com/page-1.html
+
+http => potocol
+www.dr-chuck.com => host
+page-1.html => document
